@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="../JS/script.js"></script>
+    <title>FourCoin Exchange</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-title">
+                <h1>FourCoin Exchange</h1><br>
+            </div>
+            <div class="navbar-button">
+                <a href="./Pages/wallet.html" class="button">Billetera</a>
+            </div>
+        </nav>
+    </header>
+    <div class="wallet">
+        <h3>Billetera Personal</h3>
+        <form class="wallet-form">
+            <p>Elija moneda a Convertir</p>
+            <input type="radio" name="cambio" id="uno">Bitcoin
+            <input type="radio" name="cambio" id="dos">Dolár
+            <p>Ingrese Monto</p>
+            <input type="number" id="valor" min="0.0001" max="1000000">
+            <input type="button" id="cotizador" value="Cotizar" onclick="convertir()"> 
+        </form>
+        <h3> Mis Fondos</h3>
+        <input type="number" id="numberInput" placeholder="Ingrese un número">
+        <button id="addButton">Agregar</button>
+        <ul id="numberList">
+            <!-- Aquí se mostrarán los números del array -->
+        </ul>
+        <script>
+            const numbers = []; // Inicializar el array para guardar números
+    
+            const numberInput = document.getElementById("numberInput");
+            const addButton = document.getElementById("addButton");
+            const numberList = document.getElementById("numberList");
+    
+            addButton.addEventListener("click", () => {
+                const newNumber = parseFloat(numberInput.value); // Convertir el valor del input a número
+                if (!isNaN(newNumber)) { // Verificar que el valor es un número válido
+                    numbers.push(newNumber); // Agregar el número al array
+                    renderNumberList(); // Actualizar la lista
+                    numberInput.value = ""; // Limpiar el input
+                }
+            });
+    
+            function renderNumberList() {
+                // Limpiar la lista antes de volver a mostrar los números
+                while (numberList.firstChild) {
+                    numberList.removeChild(numberList.firstChild);
+                }
+    
+                // Agregar los números guardados en el array a la lista
+                numbers.forEach(number => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = number;
+                    numberList.appendChild(listItem);
+                });
+            }
+    
+            // Mostrar la lista inicial al cargar la página
+            renderNumberList();
+        </script>    
+    </div>
+
+    
+    
+</body>
+</html>

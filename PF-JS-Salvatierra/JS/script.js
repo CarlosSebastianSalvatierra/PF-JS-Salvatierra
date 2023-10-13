@@ -23,33 +23,12 @@ function Registrar() {
 
         else{
             validaciones = true;
-            alert('Se ha registrado con exito');
         }
 
 
     }
-   
+    alert('Se ha registrado con exito');
 
-
-}
-
-function convertir(){
-    var valore = parseInt(document.getElementById("valor").value);
-    var resultado =0;
-    var dolar = 1000;
-    var bitcoin =9300000;
-    if (document.getElementById("dos").checked){
-        resultado = valore/dolar;
-        alert("El cambio de Pesos a Dolares es: $"+ resultado);
-    }
-    else if(document-getElementById("uno").checked){
-        resultado = valores/bitcoin;
-        alert("El cambio de Pesos a Bitcoin es: $" + resultado);
-
-    }
-    else{
-        alert("Debe elegir una opción");
-    }
 
 }
 
